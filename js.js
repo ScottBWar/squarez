@@ -1,15 +1,34 @@
-// $(document).ready(function() {
+$(document).ready(function() {
 
-    console.log("ready");
-    $('.square').on('click', function() {
-        console.log("this is " + $('.square').index(this));
+    var squares = $(".square");
 
-    $('.square').addClass('yellow');
 
+
+    $('.square').on("mouseover", function() {
+        var highlightIndex = $('.square').index(this);
+        $('.square').each(
+            function(i) {
+                if (i <= highlightIndex) {
+                    $(this).addClass("yellow");
+                } else {
+                    $(this).removeClass("yellow");
+                }
+            });
+    });
+
+
+    $('.square').on("mouseout", function() {
+        var highlightIndex = $('.square').index(this);
+        $('.square').each(
+            function(i) {
+                $(this).removeClass("yellow");
+            });
     });
 
 
 
 
 
-// });
+
+
+});
